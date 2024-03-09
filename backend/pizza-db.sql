@@ -44,5 +44,3 @@ CREATE TABLE IF NOT EXISTS orders (
 );
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
-
