@@ -15,5 +15,7 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"prettier.singleQuote": true, // одинарные кавычки
-	"prettier.semi": true // добавить точку с запятой в конце
+	"prettier.semi": true, // добавить точку с запятой в конце
+
+	"files.associations": { "*.svelte": "html" }
 }
