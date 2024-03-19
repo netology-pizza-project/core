@@ -16,10 +16,16 @@
 
 		-webkit-mask: linear-gradient(to right, transparent, black 40%, black 60%, transparent);
 		mask: linear-gradient(to right, transparent, black 40%, black 60%, transparent);
+		overflow-x: hidden;
 
 		img {
 			width: 478px;
 			height: 312px;
+			transition: 0.5s;
+
+			&:hover {
+				transform: scale(1.1);
+			}
 		}
 	}
 
