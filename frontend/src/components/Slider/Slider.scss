@@ -1,37 +1,59 @@
-#carousel-container {
-	width: 100%;
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	overflow-x: hidden;
-}
-#carousel-images {
-	display: flex;
-	justify-content: center;
-	flex-wrap: nowrap;
-	-webkit-mask: linear-gradient(to right, transparent, black 40%, black 60%, transparent);
-	mask: linear-gradient(to right, transparent, black 40%, black 60%, transparent);
-}
+.carousel {
+	&__container {
+		margin: 10px auto;
 
-button {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background: transparent;
-	border: none;
-}
+		max-width: 1360px;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden;
+	}
 
-button:focus {
-	outline: auto;
-}
+	&__images {
+		display: flex;
+		justify-content: center;
+		flex-wrap: nowrap;
 
-#left {
-	left: 10px;
-}
+		-webkit-mask: linear-gradient(to right, transparent, black 40%, black 60%, transparent);
+		mask: linear-gradient(to right, transparent, black 40%, black 60%, transparent);
 
-#right {
-	right: 10px;
+		img {
+			width: 478px;
+			height: 312px;
+		}
+	}
+
+	&__btn {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		border-radius: 27px;
+		background: rgba(247, 210, 45, 0.9);
+		border: none;
+
+		padding: 0;
+		cursor: pointer;
+		transition: 0.5s;
+
+		svg {
+			width: 31px;
+		}
+
+		&:hover {
+			background: rgba(223, 183, 8, 0.9);
+		}
+	}
+
+	#left {
+		left: 50px;
+	}
+
+	#right {
+		right: 50px;
+	}
 }
