@@ -2,6 +2,7 @@
 	import Container from '../Container/Container.svelte';
 	import Header from '../Header/Header.svelte';
 	import Menu from '../Menu/Menu.svelte';
+	import Slider from '../Slider/Slider.svelte';
 
 	let images = [
 		{ id: 0, path: 'src/assets/slider/1.png' },
@@ -18,6 +19,19 @@
 
 	<Container>
 		<Menu />
+	</Container>
+
+	<Container>
+		<Slider
+			{images}
+			imageWidth={250}
+			imageSpacing={15}
+			controlColor={'white'}
+			controlScale={0.8}
+			displayControls={true}
+			autoplay={true}
+			autoplaySpeed={3000}
+		/>
 	</Container>
 </main>
 
