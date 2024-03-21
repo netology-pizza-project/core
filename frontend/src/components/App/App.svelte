@@ -2,6 +2,7 @@
 	import Container from '../Container/Container.svelte';
 	import Header from '../Header/Header.svelte';
 	import Menu from '../Menu/Menu.svelte';
+	import Special from '../Special/Special.svelte';
 	import Slider from '../Slider/Slider.svelte';
 </script>
 
@@ -14,7 +15,13 @@
 		<Menu />
 	</Container>
 
-	<Slider />
+	<Container>
+		<Slider />
+	</Container>
+
+	<Container>
+		<Special />
+	</Container>
 </main>
 
 <style lang="scss">
