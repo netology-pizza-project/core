@@ -14,8 +14,8 @@
 		justify-content: center;
 		flex-wrap: nowrap;
 
-		-webkit-mask: linear-gradient(to right, transparent, black 40%, black 60%, transparent);
-		mask: linear-gradient(to right, transparent, black 40%, black 60%, transparent);
+		-webkit-mask: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+		mask: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 		overflow-x: hidden;
 
 		img {
