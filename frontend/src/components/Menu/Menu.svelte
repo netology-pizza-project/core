@@ -36,5 +36,5 @@
 </nav>
 
 <style lang="scss">
- 	@import "Menu.scss"
+	@import 'Menu.scss';
 </style>
