@@ -1,0 +1,87 @@
+.Title_Main {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 800;
+	font-size: 32px;
+	line-height: 39px;
+	letter-spacing: 0;
+	text-align: left;
+	color: rgb(247, 210, 45);
+}
+
+.content-container {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.customImage {
+	width: 253px;
+	height: 253px;
+	top: 806px;
+	left: 220px;
+	border-radius: 0px;
+}
+
+.imageTitle {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 800;
+	font-size: 24px;
+	line-height: 28px;
+	letter-spacing: 0;
+	text-align: left;
+	width: 255px;
+	margin-bottom: 10px;
+	color: rgb(121, 121, 121);
+}
+
+.description {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	font-size: 13px;
+	line-height: 19px;
+	letter-spacing: 0;
+	text-align: left;
+	max-width: 255px;
+	margin-top: 0;
+	color: rgb(121, 121, 121);
+}
+
+.secondaryTitle {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
+	font-size: 22px;
+	line-height: 19px;
+	letter-spacing: 0;
+	text-align: left;
+	margin-top: 0;
+	margin-right: 10px;
+	color: rgb(35, 31, 32);
+}
+
+.secondaryTitle_N_Button {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.customButton {
+	width: 126px;
+	height: 36px;
+	top: 1238px;
+	left: 349px;
+	border-radius: 8px;
+	border: none;
+	cursor: pointer;
+	background-color: rgb(247, 210, 45);
+	color: rgb(71, 62, 67);
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	text-align: center;
+	line-height: 36px;
+	margin-left: 20px;
+	margin-top: -20px;
+}
+
+.customButton:hover {
+	background-color: rgb(234, 226, 162);
+}
