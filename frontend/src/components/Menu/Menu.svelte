@@ -1,31 +1,15 @@
 <script lang="ts">
 	import Cart from '../Cart/Cart.svelte';
+	import { pizzaStore } from '../../store/pizza.store';
 	import type { IPizzaCart } from './types';
+	import { onDestroy } from 'svelte';
 
 	let isOpenCart = false;
-	let pizzaCart: IPizzaCart[] = [
-		{
-			id: '0',
-			img: 'src/assets/special/spec_piz_1.png',
-			title: 'Пицца с креветками и трюфелями 0',
-			price: 600,
-			count: 1
-		},
-		{
-			id: '1',
-			img: 'src/assets/special/spec_piz_1.png',
-			title: 'Пицца с креветками и трюфелями 1',
-			price: 600,
-			count: 3
-		},
-		{
-			id: '2',
-			img: 'src/assets/special/spec_piz_1.png',
-			title: 'Пицца с креветками и трюфелями 2',
-			price: 100,
-			count: 2
-		}
-	];
+	let pizzaCart: IPizzaCart[];
+
+	const unsubscribe = pizzaStore.subscribe((currentStore) => {
+		pizzaCart = currentStore;
+	});
 
 	function toggle() {
 		isOpenCart = !isOpenCart;
@@ -52,6 +36,8 @@
 			return pizza;
 		});
 	}
+
+	$: onDestroy(unsubscribe);
 </script>
 
 <nav>

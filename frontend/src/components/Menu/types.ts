@@ -4,4 +4,5 @@ export interface IPizzaCart {
 	title: string;
 	price: number;
 	count: number;
+	description?: string;
 }
