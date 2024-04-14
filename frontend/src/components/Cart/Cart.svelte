@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
+	import { slide } from 'svelte/transition';
 	import type { IPizzaCart } from '../Menu/types';
 
 	export let pizzaCart: IPizzaCart[] = [];
@@ -24,7 +25,10 @@
 
 <div class="cart">
 	{#each pizzaCart as pizza}
-		<div class="cart__item">
+		<div
+			class="cart__item"
+			transition:slide
+		>
 			<div class="cart__img">
 				<img src={pizza.img} alt={pizza.title} />
 			</div>
@@ -37,13 +41,25 @@
 				</div>
 			</div>
 			<div class="cart__total">
-				<button on:click={() => deletePizzaFromCart(pizza.id)}>x</button>
-				<span>{pizza.price * pizza.count}</span>
+				<button on:click={() => deletePizzaFromCart(pizza.id)}>
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
+						<circle cx="12" cy="12" r="10" stroke-width="1.5" />
+						<path
+							d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5"
+							stroke-width="1.5"
+							stroke-linecap="round"
+						/>
+					</svg>
+				</button>
+				<span>{pizza.price * pizza.count} ₽</span>
 			</div>
 		</div>
 	{/each}
 
-	<div class="cart__sum">{sumOfCart}</div>
+	<div class="cart__sum">
+		<h3>Сумма заказа</h3>
+		<div>{sumOfCart} ₽</div>
+	</div>
 </div>
 
 <style lang="scss">

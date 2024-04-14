@@ -2,7 +2,7 @@
 	import Cart from '../Cart/Cart.svelte';
 	import type { IPizzaCart } from './types';
 
-	let isOpenCart = true;
+	let isOpenCart = false;
 	let pizzaCart: IPizzaCart[] = [
 		{
 			id: '0',
@@ -88,7 +88,7 @@
 		</li>
 	</ul>
 
-	<button on:click={toggle}>Корзина <span>1</span></button>
+	<button on:click={toggle}>Корзина <span>{pizzaCart.length}</span></button>
 
 	{#if isOpenCart}
 		<Cart
