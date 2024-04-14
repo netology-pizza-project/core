@@ -1,4 +1,5 @@
 .Title_Main {
+	margin-top: 46px;
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 800;
 	font-size: 32px;
@@ -56,33 +57,35 @@
 }
 
 .customButton {
-	width: 126px;
 	border-radius: 8px;
 	border: none;
 	cursor: pointer;
 	background-color: rgb(247, 210, 45);
 	color: rgb(71, 62, 67);
-	font-family: 'Montserrat', sans-serif;
-	font-size: 16px;
-	text-align: center;
-	line-height: 36px;
+	font-family: Montserrat;
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 28px;
 	margin-left: 20px;
-}
+	transition: 0.5s;
+	padding: 4px 23px;
 
-.customButton:hover {
-	background-color: rgb(234, 226, 162);
+	&:hover {
+		background: rgb(243, 243, 247);
+	}
 }
 
 .content-container {
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-	width: 205px;
 }
 
 .grid-container {
+	margin-top: 26px;
+
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	gap: 50px 32px;
+	gap: 50px 28px;
 	justify-content: space-between;
 }
