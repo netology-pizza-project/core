@@ -25,10 +25,7 @@
 
 <div class="cart">
 	{#each pizzaCart as pizza}
-		<div
-			class="cart__item"
-			transition:slide
-		>
+		<div class="cart__item" transition:slide>
 			<div class="cart__img">
 				<img src={pizza.img} alt={pizza.title} />
 			</div>
