@@ -6,7 +6,6 @@
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		overflow-x: hidden;
 	}
 
 	&__images {
@@ -16,7 +15,7 @@
 
 		-webkit-mask: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
 		mask: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-		overflow-x: hidden;
+		overflow: hidden;
 
 		img {
 			width: 478px;
