@@ -1,0 +1,175 @@
+.cart {
+	position: absolute;
+
+	top: 68px;
+	right: 0;
+	z-index: 100;
+
+	width: 349px;
+	// min-height: 463px;
+
+	box-sizing: border-box;
+	border: 4px solid rgba(247, 210, 45, 0.4);
+	border-radius: 10px;
+	box-shadow: 0 4px 28px 0 rgba(0, 0, 0, 0.08);
+	background: rgb(255, 255, 255);
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: -12px;
+		right: 30px;
+		border-left: 20px solid transparent;
+		border-right: 20px solid transparent;
+		border-bottom: 20px solid #fff;
+		width: 0;
+		height: 0;
+	}
+
+	&__item {
+		position: relative;
+
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		padding: 20px;
+
+		&::before {
+			content: '';
+
+			width: 90%;
+			height: 2px;
+			border-bottom: 2px solid rgba(0, 0, 0, 0.06);
+
+			position: absolute;
+			bottom: 0;
+		}
+	}
+
+	&__img {
+		width: 80px;
+
+		margin-right: 17px;
+
+		& img {
+			width: 100%;
+		}
+	}
+
+	&__info {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: flex-start;
+
+		h3 {
+			width: 146px;
+
+			font-family: Montserrat;
+			color: rgb(14, 12, 13);
+			font-size: 15px;
+			font-weight: 700;
+			line-height: 17px;
+		}
+	}
+
+	&__count {
+		margin-top: 12px;
+		border-radius: 8px;
+		background: rgb(243, 243, 247);
+		padding: 5px 7px;
+
+		span {
+			margin: 0 10px;
+
+			color: rgb(105, 111, 122);
+			font-family: Montserrat;
+			font-size: 14px;
+			font-weight: 700;
+			line-height: 28px;
+		}
+
+		button {
+			border: none;
+			background: transparent;
+			padding: 0 10px;
+			cursor: pointer;
+			transition: 0.5s;
+
+			// Text
+			color: rgb(105, 111, 122);
+			font-family: Montserrat;
+			font-size: 14px;
+			font-weight: 700;
+			line-height: 28px;
+
+			&:hover {
+				color: rgb(247, 210, 45);
+			}
+		}
+	}
+
+	&__total {
+		height: 21vh;
+
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+
+		& button {
+			border: none;
+			background: transparent;
+			padding: 0;
+			cursor: pointer;
+
+			svg {
+				width: 27px;
+				height: 27px;
+				transition: 0.5s;
+
+				stroke: rgb(105, 111, 122);
+
+				&:hover {
+					fill: rgb(247, 210, 45);
+					stroke: rgb(243, 243, 247);
+				}
+			}
+		}
+
+		& span {
+			display: block;
+			width: 70px;
+
+			color: rgb(247, 210, 45);
+			font-family: Montserrat;
+			font-size: 20px;
+			font-weight: 700;
+			line-height: 24px;
+		}
+	}
+
+	&__sum {
+		padding: 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		h3 {
+			color: rgb(14, 12, 13);
+			font-family: Montserrat;
+			font-size: 15px;
+			font-weight: 600;
+			line-height: 17px;
+		}
+
+		div {
+			color: rgb(247, 210, 45);
+			font-family: Montserrat;
+			font-size: 24px;
+			font-weight: 800;
+			line-height: 29px;
+		}
+	}
+}
