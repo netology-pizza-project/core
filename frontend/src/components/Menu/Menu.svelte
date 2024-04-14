@@ -1,3 +1,59 @@
+<script lang="ts">
+	import Cart from '../Cart/Cart.svelte';
+	import type { IPizzaCart } from './types';
+
+	let isOpenCart = true;
+	let pizzaCart: IPizzaCart[] = [
+		{
+			id: '0',
+			img: 'src/assets/special/spec_piz_1.png',
+			title: 'Пицца с креветками и трюфелями 0',
+			price: 600,
+			count: 1
+		},
+		{
+			id: '1',
+			img: 'src/assets/special/spec_piz_1.png',
+			title: 'Пицца с креветками и трюфелями 1',
+			price: 600,
+			count: 3
+		},
+		{
+			id: '2',
+			img: 'src/assets/special/spec_piz_1.png',
+			title: 'Пицца с креветками и трюфелями 2',
+			price: 100,
+			count: 2
+		}
+	];
+
+	function toggle() {
+		isOpenCart = !isOpenCart;
+	}
+
+	function deleteItem(pizzaId: CustomEvent) {
+		pizzaCart = pizzaCart.filter((pizza) => pizza.id !== pizzaId.detail);
+	}
+
+	function increaseCount(pizzaId: CustomEvent) {
+		pizzaCart = pizzaCart.map((pizza) => {
+			if (pizza.id === pizzaId.detail) {
+				return { ...pizza, count: pizza.count + 1 };
+			}
+			return pizza;
+		});
+	}
+
+	function decreaseCount(pizzaId: CustomEvent) {
+		pizzaCart = pizzaCart.map((pizza) => {
+			if (pizza.id === pizzaId.detail && pizza.count > 1) {
+				return { ...pizza, count: pizza.count - 1 };
+			}
+			return pizza;
+		});
+	}
+</script>
+
 <nav>
 	<ul>
 		<li>
@@ -32,7 +88,16 @@
 		</li>
 	</ul>
 
-	<button>Корзина <span>1</span></button>
+	<button on:click={toggle}>Корзина <span>1</span></button>
+
+	{#if isOpenCart}
+		<Cart
+			{pizzaCart}
+			on:deleteItem={deleteItem}
+			on:increaseCount={increaseCount}
+			on:decreaseCount={decreaseCount}
+		/>
+	{/if}
 </nav>
 
 <style lang="scss">
