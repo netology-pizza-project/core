@@ -6,6 +6,9 @@
 	z-index: 100;
 
 	width: 349px;
+	height: auto;
+	max-height: 375px;
+	overflow-y: auto;
 	// min-height: 463px;
 
 	box-sizing: border-box;
@@ -148,6 +151,7 @@
 			font-size: 20px;
 			font-weight: 700;
 			line-height: 24px;
+			text-wrap: nowrap;
 		}
 	}
 

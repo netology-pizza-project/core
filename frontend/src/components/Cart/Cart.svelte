@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
-	import { slide } from 'svelte/transition';
+	import { fade, slide } from 'svelte/transition';
 	import type { IPizzaCart } from '../Menu/types';
 
 	export let pizzaCart: IPizzaCart[] = [];
@@ -23,7 +23,7 @@
 	}
 </script>
 
-<div class="cart">
+<div class="cart" transition:fade={{ duration: 300 }}>
 	{#each pizzaCart as pizza}
 		<div class="cart__item" transition:slide>
 			<div class="cart__img">

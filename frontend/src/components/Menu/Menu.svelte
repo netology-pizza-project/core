@@ -17,6 +17,7 @@
 
 	function deleteItem(pizzaId: CustomEvent) {
 		pizzaCart = pizzaCart.filter((pizza) => pizza.id !== pizzaId.detail);
+		pizzaStore.set(pizzaCart);
 	}
 
 	function increaseCount(pizzaId: CustomEvent) {
