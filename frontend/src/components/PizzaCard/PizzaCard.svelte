@@ -3,15 +3,27 @@
 	import { pizzasData } from '../../store/data.store';
 	import { pizzaStore } from '../../store/pizza.store';
 	import type { IPizzaCart } from '../Menu/types';
+	import PopUp from '../PopUp/PopUp.svelte';
 
 	// TODO: удалить когда будет реализовано получение через API
 	let mockPizzaData: IPizzaCart[] = [];
+
+	let isShowPopUp = false;
+	let timer: ReturnType<typeof setTimeout>;
+
+	$: if (isShowPopUp) {
+		timer = setTimeout(() => {
+			isShowPopUp = !isShowPopUp;
+		}, 1000);
+	}
 
 	const unsubscribe = pizzasData.subscribe((currentStore) => {
 		mockPizzaData = currentStore;
 	});
 
 	function addToCart(pizzaToAdd) {
+		isShowPopUp = !isShowPopUp;
+
 		pizzaStore.update((currentPizzas) => {
 			let pizzaFound = false;
 
@@ -40,7 +52,11 @@
 	});
 </script>
 
-<h2 class="Title_Main">Паста</h2>
+<h2 class="Title_Main">Каталог</h2>
+
+{#if isShowPopUp}
+	<PopUp />
+{/if}
 
 <div class="grid-container">
 	{#each mockPizzaData as pizza}
