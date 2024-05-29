@@ -1,50 +1,44 @@
+<script lang="ts">
+	import { onMount } from 'svelte';
+	import { pizzasData } from '../../store/data.store';
+	import type { IPizzaCart } from '../Menu/types';
+
+	// TODO: удалить когда будет реализовано получение через API
+	let mockData: IPizzaCart[] = [];
+
+	const unsubscribe = pizzasData.subscribe((currentStore) => {
+		mockData = currentStore;
+	});
+
+	// Функция для случайного выбора 4 пицц
+	function getRandomPizzas(pizzas: IPizzaCart[], count: number) {
+		const shuffled = pizzas.sort(() => 0.5 - Math.random());
+		return shuffled.slice(0, count);
+	}
+
+	onMount(() => {
+		return () => {
+			unsubscribe();
+		};
+	});
+</script>
+
 <section class="special">
 	<h2 class="spesial-title">Новинки</h2>
 
 	<div class="special-wrapper">
-		<div class="special-piz">
-			<div class="special-img">
-				<img src="src/assets/special/spec_piz_1.png" alt="pizza caesar" />
-			</div>
+		{#each getRandomPizzas(mockData, 4) as pizza}
+			<div class="special-piz">
+				<div class="special-img">
+					<img src={pizza.img} alt={pizza.title} />
+				</div>
 
-			<div class="special-txt">
-				<h3>Карбонара</h3>
-				<h4>от 120 ₽</h4>
+				<div class="special-txt">
+					<h3>{pizza.title}</h3>
+					<h4>{pizza.price} ₽</h4>
+				</div>
 			</div>
-		</div>
-
-		<div class="special-piz">
-			<div class="special-img">
-				<img src="src/assets/special/spec_piz_1.png" alt="pizza caesar" />
-			</div>
-
-			<div class="special-txt">
-				<h3>Карбонара</h3>
-				<h4>от 120 ₽</h4>
-			</div>
-		</div>
-
-		<div class="special-piz">
-			<div class="special-img">
-				<img src="src/assets/special/spec_piz_1.png" alt="pizza caesar" />
-			</div>
-
-			<div class="special-txt">
-				<h3>Карбонара</h3>
-				<h4>от 120 ₽</h4>
-			</div>
-		</div>
-
-		<div class="special-piz">
-			<div class="special-img">
-				<img src="src/assets/special/spec_piz_1.png" alt="pizza caesar" />
-			</div>
-
-			<div class="special-txt">
-				<h3>Карбонара</h3>
-				<h4>от 120 ₽</h4>
-			</div>
-		</div>
+		{/each}
 	</div>
 
 	<div class="chubrik">

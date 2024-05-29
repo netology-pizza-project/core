@@ -9,6 +9,15 @@
 		{ id: '1', path: 'src/assets/slider/2.png' },
 		{ id: '2', path: 'src/assets/slider/3.png' },
 		{ id: '3', path: 'src/assets/slider/4.png' }
+
+		// { id: '0', path: 'src/assets/pizza/margarita.webp' },
+		// { id: '1', path: 'src/assets/pizza/pepperoni.webp' },
+		// { id: '2', path: 'src/assets/pizza/BBQ.webp' },
+		// { id: '3', path: 'src/assets/pizza/hawaiian.webp' },
+		// { id: '4', path: 'src/assets/pizza/vegetable.webp' },
+		// { id: '5', path: 'src/assets/pizza/buffalo.webp' },
+		// { id: '6', path: 'src/assets/pizza/meat.webp' },
+
 	];
 	const speed = 500;
 
