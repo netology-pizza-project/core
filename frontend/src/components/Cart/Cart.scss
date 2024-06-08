@@ -177,4 +177,33 @@
 			line-height: 29px;
 		}
 	}
+
+	&__buy {
+		padding: 20px;
+		
+		button {
+			width: 100%;
+			border-radius: 8px;
+			background: rgb(247, 210, 45);
+			border: none;
+			padding-top: 7px;
+			padding-bottom: 7px;
+			padding-left: 25px;
+			padding-right: 14px;
+			cursor: pointer;
+			transition: 0.5s;
+
+
+			// text
+			color: rgb(35, 31, 32);
+			font-family: Montserrat;
+			font-size: 16px;
+			font-weight: 700;
+			line-height: 28px;
+
+			&:hover {
+				background: rgb(243, 243, 247);
+			}
+		}
+	}
 }

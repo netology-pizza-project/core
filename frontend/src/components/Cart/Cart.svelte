@@ -57,6 +57,12 @@
 		<h3>Сумма заказа</h3>
 		<div>{sumOfCart} ₽</div>
 	</div>
+
+	{#if sumOfCart > 0}
+		<div class="cart__buy">
+			<button>Оформить заказ</button>
+		</div>
+	{/if}
 </div>
 
 <style lang="scss">
