@@ -180,7 +180,7 @@
 
 	&__buy {
 		padding: 20px;
-		
+
 		button {
 			width: 100%;
 			border-radius: 8px;
@@ -193,7 +193,6 @@
 			cursor: pointer;
 			transition: 0.5s;
 
-
 			// text
 			color: rgb(35, 31, 32);
 			font-family: Montserrat;
@@ -205,5 +204,63 @@
 				background: rgb(243, 243, 247);
 			}
 		}
+	}
+}
+
+.wr {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.textarea {
+	width: 37rem;
+	height: 100px;
+	resize: none;
+	outline: none;
+	padding: 10px;
+
+	border-radius: 12px;
+	background: rgb(243, 243, 247);
+
+	// fonts
+	color: rgb(14, 12, 13);
+	font-family: Montserrat;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 18px;
+
+	&::placeholder {
+		color: rgb(105, 111, 122);
+		font-family: Montserrat;
+		font-size: 15px;
+		font-weight: 600;
+		line-height: 18px;
+	}
+}
+
+.customButton {
+	margin-top: 15px;
+	width: 38rem;
+	border-radius: 8px;
+	background: rgb(247, 210, 45);
+	border: none;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left: 25px;
+	padding-right: 14px;
+	cursor: pointer;
+	transition: 0.5s;
+
+	// text
+	color: rgb(35, 31, 32);
+	font-family: Montserrat;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 28px;
+
+	&:hover {
+		background: rgb(243, 243, 247);
 	}
 }

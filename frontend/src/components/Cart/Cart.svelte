@@ -2,8 +2,19 @@
 	import { createEventDispatcher } from 'svelte';
 	import { fade, slide } from 'svelte/transition';
 	import type { IPizzaCart } from '../Menu/types';
+	import Modal from '../Modal/Modal.svelte';
+	import PopUp from '../PopUp/PopUp.svelte';
+	import { pizzaStore } from '../../store/pizza.store';
+
+	let title = 'Ваш заказ';
+	let message = '';
+	let isShowTextarea = false;
+	let isShowPopUp = false;
+
+	let dialog = null;
 
 	export let pizzaCart: IPizzaCart[] = [];
+	export let isShowCart = false;
 	const dispatch = createEventDispatcher();
 
 	$: sumOfCart = pizzaCart.reduce((total, pizza) => {
@@ -20,6 +31,38 @@
 
 	function decreaseCount(pizzaId: string) {
 		dispatch('decreaseCount', pizzaId);
+	}
+
+	function showModal() {
+		dialog.showModal();
+		title = 'Ваш заказ принят';
+		setTimeout(() => {
+			title = 'Пицца готовится';
+
+			setTimeout(() => {
+				title = 'Пицца готова!';
+
+				setTimeout(() => {
+					title = 'Оставьте отзыв о нашем сервисе';
+
+					isShowTextarea = true;
+				}, 1000);
+			}, 3000);
+		}, 2000);
+	}
+
+	function closeModal() {
+		dialog.close();
+
+		isShowTextarea = false;
+		isShowPopUp = true;
+
+		pizzaStore.set([]);
+
+		setTimeout(() => {
+			isShowPopUp = false;
+			isShowCart = false;
+		}, 1000);
 	}
 </script>
 
@@ -60,8 +103,23 @@
 
 	{#if sumOfCart > 0}
 		<div class="cart__buy">
-			<button>Оформить заказ</button>
+			<button on:click={showModal}>Оформить заказ</button>
 		</div>
+	{/if}
+
+	<Modal {title} bind:dialog>
+		{message}
+
+		{#if isShowTextarea}
+			<div class="wr">
+				<textarea class="textarea" placeholder="Оставьте отзыв" />
+				<button class="customButton" on:click={closeModal}>Отправить</button>
+			</div>
+		{/if}
+	</Modal>
+
+	{#if isShowPopUp}
+		<PopUp titlePopUp="Спасибо за ваш отзыв!" />
 	{/if}
 </div>
 

@@ -55,7 +55,7 @@
 <h2 class="Title_Main">Каталог</h2>
 
 {#if isShowPopUp}
-	<PopUp />
+	<PopUp titlePopUp="Пицца добавлена в корзину" />
 {/if}
 
 <div class="grid-container">

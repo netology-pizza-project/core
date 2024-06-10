@@ -79,6 +79,7 @@
 
 	{#if isOpenCart}
 		<Cart
+			bind:isShowCart={isOpenCart}
 			{pizzaCart}
 			on:deleteItem={deleteItem}
 			on:increaseCount={increaseCount}
