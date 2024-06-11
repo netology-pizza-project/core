@@ -11,23 +11,26 @@ class BaseDAO:
     @classmethod
     async def get_by_id(cls, model_id: uuid):
         async with async_session_maker() as session:
-            query = select(cls.model).filter_by(id=model_id)
+            query = select(cls.model).filter_by(product_id=model_id)
             result = await session.execute(query)
-            return result.mappings().one_or_none()
+            products = result.scalars().one_or_none()
+            return products.__dict__
 
     @classmethod
     async def get_one_or_none(cls, **filter_by):
         async with async_session_maker() as session:
             query = select(cls.model).filter_by(**filter_by)
             result = await session.execute(query)
-            return result.mappings().one_or_none()
+            products = result.scalars().one_or_none()
+            return products.__dict__
 
     @classmethod
     async def get_all(cls):
         async with async_session_maker() as session:
             query = select(cls.model)
-            products = await session.execute(query)
-            return products.mappings().all()
+            result = await session.execute(query)
+            products = result.scalars().all()
+            return [product.__dict__ for product in products]
 
     @classmethod
     async def add(cls, **data):
