@@ -16,13 +16,13 @@
 	}
 
 	function deleteItem(pizzaId: CustomEvent) {
-		pizzaCart = pizzaCart.filter((pizza) => pizza.id !== pizzaId.detail);
+		pizzaCart = pizzaCart.filter((pizza) => pizza.product_id !== pizzaId.detail);
 		pizzaStore.set(pizzaCart);
 	}
 
 	function increaseCount(pizzaId: CustomEvent) {
 		pizzaCart = pizzaCart.map((pizza) => {
-			if (pizza.id === pizzaId.detail) {
+			if (pizza.product_id === pizzaId.detail) {
 				return { ...pizza, count: pizza.count + 1 };
 			}
 			return pizza;
@@ -31,7 +31,7 @@
 
 	function decreaseCount(pizzaId: CustomEvent) {
 		pizzaCart = pizzaCart.map((pizza) => {
-			if (pizza.id === pizzaId.detail && pizza.count > 1) {
+			if (pizza.product_id === pizzaId.detail && pizza.count > 1) {
 				return { ...pizza, count: pizza.count - 1 };
 			}
 			return pizza;

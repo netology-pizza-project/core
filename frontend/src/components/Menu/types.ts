@@ -1,8 +1,10 @@
 export interface IPizzaCart {
-	id: string;
-	img: string;
-	title: string;
-	price: number;
-	count: number;
-	description?: string;
+	product_id: string;
+	product_image: string;
+	product_title: string;
+	product_price: number;
+	count?: number;
+	product_description?: string;
+	product_is_new?: boolean;
+	product_is_available?: boolean;
 }

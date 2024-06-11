@@ -17,7 +17,6 @@
 		// { id: '4', path: 'src/assets/pizza/vegetable.webp' },
 		// { id: '5', path: 'src/assets/pizza/buffalo.webp' },
 		// { id: '6', path: 'src/assets/pizza/meat.webp' },
-
 	];
 	const speed = 500;
 

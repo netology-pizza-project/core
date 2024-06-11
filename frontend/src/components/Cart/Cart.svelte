@@ -18,7 +18,7 @@
 	const dispatch = createEventDispatcher();
 
 	$: sumOfCart = pizzaCart.reduce((total, pizza) => {
-		return total + pizza.price * pizza.count;
+		return total + pizza.product_price * pizza.count;
 	}, 0);
 
 	function deletePizzaFromCart(pizzaId: string) {
@@ -70,18 +70,18 @@
 	{#each pizzaCart as pizza}
 		<div class="cart__item" transition:slide>
 			<div class="cart__img">
-				<img src={pizza.img} alt={pizza.title} />
+				<img src={pizza.product_image} alt={pizza.product_title} />
 			</div>
 			<div class="cart__info">
-				<h3>{pizza.title}</h3>
+				<h3>{pizza.product_title}</h3>
 				<div class="cart__count">
-					<button on:click={() => decreaseCount(pizza.id)}>-</button>
+					<button on:click={() => decreaseCount(pizza.product_id)}>-</button>
 					<span>{pizza.count}</span>
-					<button on:click={() => increaseCount(pizza.id)}>+</button>
+					<button on:click={() => increaseCount(pizza.product_id)}>+</button>
 				</div>
 			</div>
 			<div class="cart__total">
-				<button on:click={() => deletePizzaFromCart(pizza.id)}>
+				<button on:click={() => deletePizzaFromCart(pizza.product_id)}>
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
 						<circle cx="12" cy="12" r="10" stroke-width="1.5" />
 						<path
@@ -91,7 +91,7 @@
 						/>
 					</svg>
 				</button>
-				<span>{pizza.price * pizza.count} ₽</span>
+				<span>{pizza.product_price * pizza.count} ₽</span>
 			</div>
 		</div>
 	{/each}
