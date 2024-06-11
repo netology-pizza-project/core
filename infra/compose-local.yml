@@ -11,10 +11,11 @@ services:
     ports:
       - "8888:8888"
   backend:
-    image: pizza-back:0.7
+    image: pizza-back:0.9
     build: ../backend
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     networks:
       - frontend
       - backend
@@ -29,6 +30,11 @@ services:
       - 5432
     networks:
       - backend
+    healthcheck:
+      test: 'pg_isready -U postgres --dbname=pizza'
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 networks:
   frontend:

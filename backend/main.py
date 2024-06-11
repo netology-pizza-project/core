@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.routing import APIRoute
+from fastapi.middleware.cors import CORSMiddleware
 
 from api.main import api_router
 from core.config import settings
@@ -14,6 +15,19 @@ app = FastAPI(
     title=settings.PROJECT_NAME,
     openapi_url=f"/docs/openapi.json",
     generate_unique_id_function=custom_generate_unique_id,
+)
+
+origins = [
+    "http://localhost:3000",
+    "http://localhost:8888",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 

@@ -4,3 +4,5 @@ alembic~=1.13.1
 pydantic~=2.7.2
 uvicorn~=0.30.0
 alembic_utils~=0.8.3
+pydantic-settings~=2.3.1
+asyncpg~=0.29.0
