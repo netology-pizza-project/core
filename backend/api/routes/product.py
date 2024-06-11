@@ -1,7 +1,7 @@
 import uuid
 
 from fastapi import APIRouter
-from api.schemas.root import SProduct
+from api.schemas.product import SProduct
 from dao.product import ProductDAO
 
 router = APIRouter()
