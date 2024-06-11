@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException, status
 from fastapi.responses import JSONResponse
 
 from dao.product import ProductDAO
-from api.schemas.product import SProduct
+from api.schemas.product import SAddProduct
 from api.schemas.order import SOrder
 
 router = APIRouter()
@@ -15,7 +15,7 @@ router = APIRouter()
 
 
 @router.post("/product")
-async def add_product(product_data: SProduct):
+async def add_product(product_data: SAddProduct):
     product_id = uuid.uuid4()
     await ProductDAO.add(product_id=product_id,
                          product_title=product_data.product_title,
