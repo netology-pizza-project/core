@@ -1,7 +1,7 @@
 <header>
 	<section class="left">
 		<div class="left__logo">
-			<img src="./src/assets/logo.svg" alt="fido pasta bar" />
+			<img src="./assets/logo.svg" alt="fido pasta bar" />
 		</div>
 
 		<div class="info">
@@ -9,7 +9,7 @@
 			<div class="delivery">
 				<div class="delivery__yandex">
 					<div>
-						<img src="./src/assets/icons/ya-food.svg" alt="ya-food" />
+						<img src="./assets/icons/ya-food.svg" alt="ya-food" />
 					</div>
 
 					<h5>Яндекс еда <span class="dot"></span> 4.8</h5>

@@ -5,10 +5,10 @@
 
 	// TODO: делать запрос за картинками
 	let images: IImages[] = [
-		{ id: '0', path: 'src/assets/slider/1.png' },
-		{ id: '1', path: 'src/assets/slider/2.png' },
-		{ id: '2', path: 'src/assets/slider/3.png' },
-		{ id: '3', path: 'src/assets/slider/4.png' }
+		{ id: '0', path: './assets/slider/1.png' },
+		{ id: '1', path: './assets/slider/2.png' },
+		{ id: '2', path: './assets/slider/3.png' },
+		{ id: '3', path: './assets/slider/4.png' }
 
 		// { id: '0', path: 'src/assets/pizza/margarita.webp' },
 		// { id: '1', path: 'src/assets/pizza/pepperoni.webp' },

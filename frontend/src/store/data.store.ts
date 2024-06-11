@@ -3,7 +3,7 @@ import { readable } from 'svelte/store';
 export const pizzasData = readable([
 	{
 		id: '1',
-		img: 'src/assets/pizza/margarita.webp',
+		img: './assets/pizza/margarita.webp',
 		title: 'Пицца "Маргарита"',
 		price: 900,
 		description:
@@ -12,7 +12,7 @@ export const pizzasData = readable([
 	},
 	{
 		id: '2',
-		img: 'src/assets/pizza/pepperoni.webp',
+		img: './assets/pizza/pepperoni.webp',
 		title: 'Пицца с Пепперони',
 		price: 1000,
 		description: 'Любимец многих, щедро уложенная ломтиками пепперони и смесью сыров моцарелла и чеддер.',
@@ -20,7 +20,7 @@ export const pizzasData = readable([
 	},
 	{
 		id: '3',
-		img: 'src/assets/pizza/BBQ.webp',
+		img: './assets/pizza/BBQ.webp',
 		title: 'Пицца с Курицей BBQ',
 		price: 700,
 		description: 'Копченый соус BBQ, гриль-курица, красный лук и кинза, покрытые сыром моцарелла.',
@@ -28,7 +28,7 @@ export const pizzasData = readable([
 	},
 	{
 		id: '4',
-		img: 'src/assets/pizza/hawaiian.webp',
+		img: './assets/pizza/hawaiian.webp',
 		title: 'Гавайская Пицца',
 		price: 850,
 		description:
@@ -37,7 +37,7 @@ export const pizzasData = readable([
 	},
 	{
 		id: '5',
-		img: 'src/assets/pizza/vegetable.webp',
+		img: './assets/pizza/vegetable.webp',
 		title: 'Овощная Пицца',
 		price: 750,
 		description: 'Сад из сезонных овощей включая болгарский перец, лук, грибы и оливки, с фетой и сыром моцарелла.',
@@ -45,7 +45,7 @@ export const pizzasData = readable([
 	},
 	{
 		id: '6',
-		img: 'src/assets/pizza/buffalo.webp',
+		img: './assets/pizza/buffalo.webp',
 		title: 'Пицца с Курицей Баффало',
 		price: 400,
 		description: 'Острая соус Баффало, курица, сельдерей и крошки голубого сыра, с вихрем соуса ранч.',
@@ -53,7 +53,7 @@ export const pizzasData = readable([
 	},
 	{
 		id: '7',
-		img: 'src/assets/pizza/meat.webp',
+		img: './assets/pizza/meat.webp',
 		title: 'Пицца для Любителей Мяса',
 		price: 1500,
 		description: 'Наполненная пепперони, колбаской, ветчиной, беконом и говядиной, покрытая сыром моцарелла.',
