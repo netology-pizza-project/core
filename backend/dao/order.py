@@ -1,23 +1,26 @@
-from sqlalchemy.dialects.postgresql import insert
+import uuid
+
+from sqlalchemy import update
 
 from db.base import async_session_maker
-from db.models import Order, OrderListing
+from db.models import Order, OrdersListing
 from dao.base import BaseDAO
 
 
 class OrderDAO(BaseDAO):
     model = Order
 
-    listing_model = OrderListing
-
     @classmethod
-    async def add(cls, **data):
+    async def update(cls, order_id: uuid.UUID, **data):
         async with async_session_maker() as session:
-            query = insert(cls.model).values(customer_id=data['customer_id'],
-                                             order_address=data['order_address'],
-                                             order_status="created")
+            query = (
+                update(cls.model)
+                .where(order_id == cls.model.order_id)
+                .values(**data)
+                .execution_options(synchronize_session='fetch'))
             await session.execute(query)
             await session.commit()
-            query = insert(cls.listing_model).values(data['products'])
-            await session.execute(query)
-            await session.commit()
+
+
+class OrdersListingDAO(BaseDAO):
+    model = OrdersListing

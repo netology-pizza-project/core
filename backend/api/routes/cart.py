@@ -11,7 +11,7 @@ router = APIRouter()
 
 @router.get("/", response_model=SGetCart)
 async def get_cart(customer_id: uuid.UUID) -> SCart:
-    return await CartDAO.get_by_id(customer_id)
+    return await CartDAO.get_one_or_none(customer_id=customer_id)
 
 
 @router.post("/")

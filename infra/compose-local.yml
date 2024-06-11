@@ -11,7 +11,7 @@ services:
     ports:
       - "8888:8888"
   backend:
-    image: pizza-back:0.9
+    image: pizza-back:0.16
     build: ../backend
     depends_on:
       database:

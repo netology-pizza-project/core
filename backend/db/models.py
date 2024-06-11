@@ -31,7 +31,7 @@ class Order(Base):
     updated_at = Column(DateTime, default=datetime.datetime.utcnow)
 
 
-class OrderListing(Base):
+class OrdersListing(Base):
     __tablename__ = 'orders_listing'
 
     enum = Column(Integer, autoincrement=True, primary_key=True, nullable=False)
@@ -43,7 +43,7 @@ class OrderListing(Base):
 class Cart(Base):
     __tablename__ = 'carts'
 
-    enum = Column(Integer, autoincrement=True, primary_key=True, nullable=False)
+    cart_id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     customer_id = Column(UUID(as_uuid=True), ForeignKey('customers.customer_id'), nullable=False)
     cart_b64_hash = Column(String, nullable=False)
     created_at = Column(DateTime, default=datetime.datetime.utcnow)

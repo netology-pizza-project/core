@@ -23,3 +23,11 @@ class SGetOrder(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class SUpdateOrder(BaseModel):
+    order_id: uuid.UUID
+    order_status: str
+
+    class Config:
+        from_attributes = True

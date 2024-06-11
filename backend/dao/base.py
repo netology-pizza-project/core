@@ -9,19 +9,13 @@ class BaseDAO:
     model = None
 
     @classmethod
-    async def get_by_id(cls, model_id: uuid):
-        async with async_session_maker() as session:
-            query = select(cls.model).filter_by(product_id=model_id)
-            result = await session.execute(query)
-            products = result.scalars().one_or_none()
-            return products.__dict__
-
-    @classmethod
     async def get_one_or_none(cls, **filter_by):
         async with async_session_maker() as session:
             query = select(cls.model).filter_by(**filter_by)
             result = await session.execute(query)
             products = result.scalars().one_or_none()
+            if products is None:
+                return False
             return products.__dict__
 
     @classmethod
@@ -43,4 +37,5 @@ class BaseDAO:
     async def update(cls, **data):
         async with async_session_maker() as session:
             query = update(cls.model).values(**data)
+            await session.execute(query)
             await session.commit()

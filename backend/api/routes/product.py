@@ -14,4 +14,4 @@ async def get_products() -> list[SProduct]:
 
 @router.get("/{id}", response_model=SProduct)
 async def get_product(product_id: uuid.UUID) -> SProduct:
-    return await ProductDAO.get_by_id(product_id)
+    return await ProductDAO.get_one_or_none(product_id=product_id)

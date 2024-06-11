@@ -30,12 +30,32 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 @app.on_event("startup")
 async def init_models():
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.drop_all)
         await conn.run_sync(Base.metadata.create_all)
+        # conn = await asyncpg.connect(DATABASE_URL)
+        # try:
+        #     with open("db/seed/product_seed.sql", "r") as f:
+        #         pizza_sql = f.read()
+        #     with open("db/seed/customer_seed.sql", "r") as f:
+        #         customer_sql = f.read()
+        #     with open("db/seed/order_seed.sql", "r") as f:
+        #         orders_sql = f.read()
+        #     with open("db/seed/orders_listing_seed.sql", "r") as f:
+        #         orders_listing_sql = f.read()
+        #     with open("db/seed/carts_seed.sql", "r") as f:
+        #         carts_sql = f.read()
+        #
+        #     await conn.execute(pizza_sql)
+        #     await conn.execute(customer_sql)
+        #     await conn.execute(orders_sql)
+        #     await conn.execute(orders_listing_sql)
+        #     await conn.execute(carts_sql)
+        #
+        # finally:
+        #     await conn.close()
 
 if __name__ == "__main__":
     import uvicorn
