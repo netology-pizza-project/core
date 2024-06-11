@@ -4,7 +4,7 @@ from fastapi import APIRouter, HTTPException, status
 from fastapi.responses import JSONResponse
 
 from dao.product import ProductDAO
-from api.schemas.root import SProduct
+from api.schemas.product import SProduct
 from api.schemas.order import SOrder
 
 router = APIRouter()
